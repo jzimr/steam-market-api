@@ -1,0 +1,29 @@
+
+Get inventory info:
+https://steamcommunity.com/profiles/76561198058085530/inventory/json/218620/2?l=english&count=5000
+                                   |-----------------|              |------| |-------------------|
+                                         steamID                      appID    extras (optional)
+
+Get market info on single item:
+https://steamcommunity.com/market/priceoverview/?currency=9&appid=440&market_hash_name=Earbuds
+
+Get market results via API (Like searching manually and paging):
+10 results at a time: https://steamcommunity.com/market/search/render/?l=norwegian&cc=es&country=NO&start=0&count=10&currency=6&category_730_Weapon%5B%5D=tag_weapon_awp&appid=730&query=Man-o%27-war%22;
+100 results at a time: https://steamcommunity.com/market/search/render/?search_descriptions=0&sort_column=default&sort_dir=asc&appid=730&norender=1&start=0&count=100
+
+Get market history of an item:
+https://steamcommunity.com/market/pricehistory/?country=PT&currency=3&appid=730&market_hash_name=Falchion%20Case
+
+PriceHistory:
+1. Open developer console
+2. Go to "Sources"
+3. Go to market/listings/730 and click on "Prisma 2 Case"
+4. History data is imbedded in the source code
+https://steamcommunity.com/market/listings/730/Prisma%202%20Case
+
+To log in do:
+1. "http://store.steampowered.com/login/getrsakey/?username=multikus98"
+2. Encrypt password with the "publickey_mod" value
+3. Do https://steamcommunity.com/login/dologin/?params... to log in
+sources:
+https://stackoverflow.com/questions/37775604/steam-webapi-authenticateuser
