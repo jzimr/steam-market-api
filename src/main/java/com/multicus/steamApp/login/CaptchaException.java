@@ -2,6 +2,9 @@ package com.multicus.steamApp.login;
 
 import com.multicus.steamApp.error.SteamException;
 
+/**
+ * Exception when user needs to solve a captcha on login
+ */
 public class CaptchaException extends SteamException {
     private final String captchaUrl;
     private final String captchaGid;

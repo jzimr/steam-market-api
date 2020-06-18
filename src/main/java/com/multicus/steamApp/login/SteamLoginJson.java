@@ -3,6 +3,9 @@ package com.multicus.steamApp.login;
 import kong.unirest.JsonNode;
 import kong.unirest.json.JSONObject;
 
+/**
+ * Class that contains the response fields when logging into Steam
+ */
 public class SteamLoginJson {
     private final boolean success;
     private String message;
@@ -12,6 +15,10 @@ public class SteamLoginJson {
     private boolean captchaNeeded;
     private String captchaGid;
 
+    /**
+     * Constructor to deserialize the JSON given into the fields of the class
+     * @param node JsonNode containing the JSON response to deserialize
+     */
     public SteamLoginJson(JsonNode node){
         JSONObject nodeObj = node.getObject();
 

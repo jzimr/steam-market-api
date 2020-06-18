@@ -2,6 +2,10 @@ package com.multicus.steamApp.login;
 
 import com.multicus.steamApp.error.SteamException;
 
+/**
+ * Exception for when user needs to authenticate via Email Code
+ * (aka SteamGuard)
+ */
 public class SteamGuardException extends SteamException {
     private final String emailSteamId;
 

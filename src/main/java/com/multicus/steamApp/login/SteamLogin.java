@@ -8,13 +8,37 @@ import kong.unirest.Unirest;
 import java.util.HashMap;
 import java.util.Map;
 
-
+/**
+ * Class to login into Steam
+ */
 public class SteamLogin {
 
-    public Cookie login(String user, String password) {
+    /**
+     * Login to steam providing username and password.
+     * @param user The username of the Steam account
+     * @param password The password of the Steam account
+     * @return Cookie needed for various other API requests that require user to be logged into Steam
+     * @throws SteamGuardException If SteamGuard authentication is required
+     * @throws CaptchaException If Captcha solve is required
+     * @throws VerificationException If username of password is incorrect
+     */
+    public Cookie login(String user, String password) throws SteamGuardException, CaptchaException, VerificationException{
         return login(user, password, "", "", "", "");
     }
 
+    /**
+     * Login to steam providing a number of information. At least username and password of account required.
+     * @param user The username of the Steam account
+     * @param password The password of the Steam account
+     * @param captchaText The solved captcha code (if requested to solve Captcha)
+     * @param captchaGid The Gid of the captcha (if requested to solve Captcha)
+     * @param emailSteamId The Steam ID of account that needs SteamGuard authentication (if requested to SteamGuard)
+     * @param emailCode The code that is given on email (if requested to SteamGuard)
+     * @return Cookie needed for various other API requests that require user to be logged into Steam
+     * @throws SteamGuardException If SteamGuard authentication is required
+     * @throws CaptchaException If Captcha solve is required
+     * @throws VerificationException If username of password is incorrect
+     */
     public Cookie login(String user, String password, String captchaText, String captchaGid, String emailSteamId, String emailCode)
             throws SteamGuardException, CaptchaException, VerificationException {
         try {
@@ -22,7 +46,7 @@ public class SteamLogin {
             RSAJson rsaJson = getRSAKey(user);
 
             // Encrypt password with the hash from RSAJson
-            RSA crypto = new RSA(rsaJson.getPublicKeyMod(), rsaJson.getPublicKeyExp());
+            RSAEncryption crypto = new RSAEncryption(rsaJson.getPublicKeyMod(), rsaJson.getPublicKeyExp());
             String encryptedPassword = crypto.encrypt(password);
 
             // Make the login by sending request with necessary data
@@ -47,17 +71,38 @@ public class SteamLogin {
         }
     }
 
-    public Cookie loginCaptcha(String user, String password, String captchaText, String captchaGid) {
+    /**
+     * Login to steam providing username, password and the captcha solve.
+     * @param user The username of the Steam account
+     * @param password The password of the Steam account
+     * @param captchaText The solved captcha code (if requested to solve Captcha)
+     * @param captchaGid The Gid of the captcha (if requested to solve Captcha)
+     * @return Cookie needed for various other API requests that require user to be logged into Steam
+     * @throws SteamGuardException If SteamGuard authentication is required
+     * @throws CaptchaException If Captcha solve is required
+     * @throws VerificationException If username of password is incorrect
+     */
+    public Cookie loginCaptcha(String user, String password, String captchaText, String captchaGid) throws SteamGuardException, CaptchaException, VerificationException{
         return login(user, password, captchaText, captchaGid, "", "");
     }
 
-    public Cookie loginSteamGuard(String user, String password, String emailSteamId, String emailCode) {
+    /**
+     * Login to Steam providing username, password and SteamGuard authentication
+     * @param user The username of the Steam account
+     * @param password The password of the Steam account
+     * @param emailSteamId The Steam ID of account that needs SteamGuard authentication (if requested to SteamGuard)
+     * @param emailCode The code that is given on email (if requested to SteamGuard)
+     * @return Cookie needed for various other API requests that require user to be logged into Steam
+     * @throws SteamGuardException If SteamGuard authentication is required
+     * @throws CaptchaException If Captcha solve is required
+     * @throws VerificationException If username of password is incorrect
+     */
+    public Cookie loginSteamGuard(String user, String password, String emailSteamId, String emailCode) throws SteamGuardException, CaptchaException, VerificationException{
         return login(user, password, "", "", emailSteamId, emailCode);
     }
 
     /**
      * Perform the steam login
-     *
      * @param params Parameters to be input into the URL
      * @return The secure login token to perform requests to various Steam API's
      */
@@ -73,8 +118,6 @@ public class SteamLogin {
 
         if (loginJson.isSuccess()) {
             // logged in
-            //System.out.println(response.getBody().toString());
-            //System.out.println(Arrays.toString(response.getCookies().toArray()));
             System.out.println("Successfully logged in");
             return response.getCookies().getNamed("steamLoginSecure");
         }
@@ -91,6 +134,12 @@ public class SteamLogin {
 
     }
 
+    /**
+     * Return the RSA key response containing information to encrypt password and login.
+     * @param user The username of the account to login with
+     * @return Class contaning response info
+     * @throws VerificationException If username or password are incorrect
+     */
     private RSAJson getRSAKey(String user) throws VerificationException {
         final String rsaURL = "https://store.steampowered.com/login/getrsakey/";
 

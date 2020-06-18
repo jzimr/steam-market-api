@@ -10,20 +10,25 @@ import org.apache.commons.codec.binary.Base64;
 import java.math.BigInteger;
 import java.nio.charset.Charset;
 
-// todo: remove "public"
-public class RSA {
+/**
+ * Class to encrypt the Steam password with the RSA provided from the getrsakey response
+ */
+class RSAEncryption {
     private final BigInteger modulus;
     private final BigInteger exponent;
     private final Charset charset = Charset.forName("ISO-8859-1");
 
-    // todo: remove "public"
-    public RSA(String modHex, String expHex) {
+    RSAEncryption(String modHex, String expHex) {
         modulus = new BigInteger(modHex, 16);
         exponent = new BigInteger(expHex, 16);
     }
 
-    // todo: remove "public"
-    public String encrypt(String password) {
+    /**
+     * Encrypt password
+     * @param password the password to encrypt
+     * @return Encrypted password
+     */
+    String encrypt(String password) {
         BigInteger data = pkcs1pad2(password.getBytes(charset), (modulus.bitLength() + 7) >> 3);
         BigInteger d2 = data.modPow(exponent, modulus);
         String dataHex = d2.toString(16);

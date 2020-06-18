@@ -10,7 +10,13 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
+/**
+ * Class to transform the JSON of price history of an item into an object
+ */
 public class MarketHistoryJson {
+    /**
+     * A single item price history entry
+     */
     public class Record {
         private final Date date;
         private final double price;
@@ -39,6 +45,10 @@ public class MarketHistoryJson {
     private List<Record> records = new ArrayList<>();
     private final static SimpleDateFormat isoFormat = new SimpleDateFormat("MMM dd yyyy HH", Locale.ENGLISH);
 
+    /**
+     * Constructor to deserialize the JSON given into the fields of the class
+     * @param node JsonNode containing the JSON response to deserialize
+     */
     public MarketHistoryJson(JsonNode node) {
         if(node.isArray() && node.getArray().isEmpty()){
             isEmpty = true;

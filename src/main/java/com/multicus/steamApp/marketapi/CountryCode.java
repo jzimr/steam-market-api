@@ -1,5 +1,8 @@
 package com.multicus.steamApp.marketapi;
 
+/**
+ * Enum containing all country codes of countries/languages currently supported by Steam
+ */
 public enum CountryCode {
     ARABIC("ar"),
     BULGARIAN("bg"),

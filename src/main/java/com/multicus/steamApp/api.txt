@@ -10,9 +10,14 @@ https://steamcommunity.com/market/priceoverview/?currency=9&appid=440&market_has
 Get market results via API (Like searching manually and paging):
 10 results at a time: https://steamcommunity.com/market/search/render/?l=norwegian&cc=es&country=NO&start=0&count=10&currency=6&category_730_Weapon%5B%5D=tag_weapon_awp&appid=730&query=Man-o%27-war%22;
 100 results at a time: https://steamcommunity.com/market/search/render/?search_descriptions=0&sort_column=default&sort_dir=asc&appid=730&norender=1&start=0&count=100
+100 results at a time (simple): https://steamcommunity.com/market/search/render/?appid=730&norender=1&count=100
 
 Get market history of an item:
 https://steamcommunity.com/market/pricehistory/?country=PT&currency=3&appid=730&market_hash_name=Falchion%20Case
+
+RUST + CSGO TOTAL ITEMS:
+17 245 = 172 calls
+10 minutes to update price on all items / 172 calls = ~3.5sec between each call
 
 PriceHistory:
 1. Open developer console
