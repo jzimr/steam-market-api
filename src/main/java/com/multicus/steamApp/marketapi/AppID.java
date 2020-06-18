@@ -7,13 +7,13 @@ public enum AppID {
     COUNTER_STRIKE_GLOBAL_OFFENSIVE(730),
     RUST(252490);
 
-    private final long id;
+    private final int id;
 
-    AppID(long id){
+    AppID(int id){
         this.id = id;
     }
 
-    public long getID(){
+    public int getID(){
         return this.id;
     }
 }

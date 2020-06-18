@@ -32,3 +32,48 @@ To log in do:
 3. Do https://steamcommunity.com/login/dologin/?params... to log in
 sources:
 https://stackoverflow.com/questions/37775604/steam-webapi-authenticateuser
+
+SteamSearch results:
+{
+"success":true,
+"start":0,
+"pagesize":1,
+"total_count":15037,
+"searchdata":{
+    "query":"",
+    "search_descriptions":false,
+    "total_count":15037,
+    "pagesize":1,
+    "prefix":"searchResults",
+    "class_prefix":"market"
+},
+"results":[
+    {"name":"Glove Case",
+    "hash_name":"Glove Case",
+    "sell_listings":96948,
+    "sell_price":48,
+    "sell_price_text":"$0.48",
+    "app_icon":"https:\/\/steamcdn-a.akamaihd.net\/steamcommunity\/public\/images\/apps\/730\/69f7ebe2735c366c65c0b33dae00e12dc40edbe4.jpg",
+    "app_name":"Counter-Strike: Global Offensive",
+    "asset_description":{
+        "appid":730,
+        "classid":"2066632015",
+        "instanceid":"0",
+        "currency":0,
+        "background_color":"",
+        "icon_url":"-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXU5A1PIYQNqhpOSV-fRPasw8rsUFJ5KBFZv668FFY1naTMdzwTtNrukteIkqT2MO_Uwz5Q6cYhibyXo4rw2ALsrkRoYjuncNCLMlhpEV4XDTk",
+        "icon_url_large":"",
+        "descriptions":[{"type":"html","value":" "}, {"type":"html","value":"Container Series #179","color":"99ccff"}, {"type":"html","value":" "}, {"type":"html","value":"Contains one of the following:"}, {"type":"html","value":"CZ75-Auto | Polymer","color":"4b69ff"},{"type":"html","value":"Glock-18 | Ironwork","color":"4b69ff"},{"type":"html","value":"MP7 | Cirrus","color":"4b69ff"},{"type":"html","value":"Galil AR | Black Sand","color":"4b69ff"},{"type":"html","value":"MP9 | Sand Scale","color":"4b69ff"},{"type":"html","value":"MAG-7 | Sonar","color":"4b69ff"},{"type":"html","value":"P2000 | Turf","color":"4b69ff"},{"type":"html","value":"Dual Berettas | Royal Consorts","color":"8847ff"},{"type":"html","value":"G3SG1 | Stinger","color":"8847ff"},{"type":"html","value":"M4A1-S | Flashback","color":"8847ff"},{"type":"html","value":"Nova | Gila","color":"8847ff"},{"type":"html","value":"USP-S | Cyrex","color":"8847ff"},{"type":"html","value":"FAMAS | Mecha Industries","color":"d32ce6"},{"type":"html","value":"P90 | Shallow Grave","color":"d32ce6"},{"type":"html","value":"Sawed-Off | Wasteland Princess","color":"d32ce6"},{"type":"html","value":"SSG 08 | Dragonfire","color":"eb4b4b"},{"type":"html","value":"M4A4 | Buzz Kill","color":"eb4b4b"},{"type":"html","value":"or the Exceedingly Rare Gloves!","color":"ffd700"},{"type":"html","value":" "},{"type":"html","value":"","color":"00a000"}],
+        "tradable":1,
+        "name":"Glove Case",
+        "name_color":"D2D2D2",
+        "type":"Base Grade Container",
+        "market_name":"Glove Case",
+        "market_hash_name":"Glove Case",
+        "commodity":1,
+        "market_tradable_restriction":7,
+        "marketable":1,
+        "market_buy_country_restriction":"FR"
+        },
+    "sale_price_text":"$0.46"}
+]}
