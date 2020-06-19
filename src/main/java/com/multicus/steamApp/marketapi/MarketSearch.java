@@ -4,8 +4,6 @@ import com.multicus.steamApp.error.SteamException;
 import kong.unirest.HttpResponse;
 import kong.unirest.JsonNode;
 import kong.unirest.Unirest;
-import org.graalvm.compiler.api.replacements.Snippet;
-import org.graalvm.compiler.options.Option;
 
 /**
  * Class to retrieve market results using search

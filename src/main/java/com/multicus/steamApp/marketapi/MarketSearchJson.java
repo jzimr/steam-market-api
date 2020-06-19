@@ -57,7 +57,8 @@ public class MarketSearchJson {
     private int pageStart;
     private int pageSize;
     private int totalCount;
-    private long lastUpdated; // not part of json, but wish to include
+    private long lastUpdated;   // not part of json, but wish to include
+    private String currency;    // --------- || ------------
     private List<Item> items = new ArrayList<>();
 
     /**
@@ -84,14 +85,25 @@ public class MarketSearchJson {
             item.sellListings = jsonObj.getInt("sell_listings");
             item.sellPrice = jsonObj.getInt("sell_price") / 100.0;
 
-            // convert sale price String to double
             String salePriceTxt = jsonObj.getString("sale_price_text");
+            // get the currency identifier of the request
+            if(i==0){
+                currency = salePriceTxt.replaceAll("[\\s\\d.,]", "");
+            }
+            // convert sale price String to double
+            salePriceTxt = salePriceTxt.replaceAll("[^\\d]", "");
+
+            /*
             salePriceTxt = salePriceTxt.substring(1);
             if(salePriceTxt.contains(",")){
                 salePriceTxt = new StringBuilder(salePriceTxt).deleteCharAt(salePriceTxt.indexOf(",")).toString();
             }
+             */
+
             try{
                 item.salePrice = Double.parseDouble(salePriceTxt);
+                // dividing by 100 because we replaced decimals in the regex above
+                item.salePrice /= 100.0;
             } catch(NumberFormatException e){
                 e.printStackTrace();
                 continue;
