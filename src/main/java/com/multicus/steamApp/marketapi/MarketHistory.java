@@ -25,7 +25,7 @@ public class MarketHistory extends APIHandler {
      * @param marketHashName The market_hash_name of the item to retrieve price history from
      * @return All price history entries recorded
      * @throws NotLoggedInException Thrown if user not logged in or session cookie has expired
-     * @throws WrongQueryException Thrown if the parameters in the query are wrong
+     * @throws WrongQueryException Thrown if the parameters in the query are incorrect
      */
     public MarketHistoryJson callAPI(AppID appId, String marketHashName) throws NotLoggedInException, WrongQueryException {
         HttpResponse<JsonNode> priceHistory = Unirest.get(baseURL)

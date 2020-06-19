@@ -18,7 +18,7 @@ public class MarketSearchJson {
     public class Item{
         private String name;
         private String hashName;
-        private int sellListings;
+        private int volume;
         private double sellPrice; // in usd
         private double salePrice; // in usd
         private int appID;
@@ -32,8 +32,8 @@ public class MarketSearchJson {
             return hashName;
         }
 
-        public int getSellListings() {
-            return sellListings;
+        public int getVolume() {
+            return volume;
         }
 
         public double getSellPrice() {
@@ -82,7 +82,7 @@ public class MarketSearchJson {
 
             item.name = jsonObj.getString("name");
             item.hashName = jsonObj.getString("hash_name");
-            item.sellListings = jsonObj.getInt("sell_listings");
+            item.volume = jsonObj.getInt("sell_listings");
             item.sellPrice = jsonObj.getInt("sell_price") / 100.0;
 
             String salePriceTxt = jsonObj.getString("sale_price_text");
@@ -93,6 +93,7 @@ public class MarketSearchJson {
             // convert sale price String to double
             salePriceTxt = salePriceTxt.replaceAll("[^\\d]", "");
 
+            // todo remove under
             /*
             salePriceTxt = salePriceTxt.substring(1);
             if(salePriceTxt.contains(",")){

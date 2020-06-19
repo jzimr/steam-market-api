@@ -33,7 +33,7 @@ public class MarketSearch {
         MarketSearchJson marketData = new MarketSearchJson(marketSearch.getBody());
 
         if(!marketData.isSuccess()) {
-            throw new SteamException("!Success. Response: " + marketSearch.getBody().toString());
+            throw new SteamException("Unsuccesfull! Response: " + marketSearch.getBody().toString());
         }
         if(marketData.getItems().isEmpty()){
             throw new SteamException("marketsearch item result is empty! Maybe wrong query?\n Response: " + marketSearch.getBody().toString());
