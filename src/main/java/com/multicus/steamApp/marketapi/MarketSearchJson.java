@@ -1,6 +1,5 @@
 package com.multicus.steamApp.marketapi;
 
-import com.google.gson.JsonObject;
 import kong.unirest.JsonNode;
 import kong.unirest.json.JSONArray;
 import kong.unirest.json.JSONObject;
@@ -8,9 +7,14 @@ import kong.unirest.json.JSONObject;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Timer;
 
+/**
+ * Class to transform the JSON of market search results into an object
+ */
 public class MarketSearchJson {
+    /**
+     * A single item in the search results
+     */
     public class Item{
         private String name;
         private String hashName;
@@ -56,6 +60,10 @@ public class MarketSearchJson {
     private long lastUpdated; // not part of json, but wish to include
     private List<Item> items = new ArrayList<>();
 
+    /**
+     * Constructor to deserialize the JSON given into the fields of the class
+     * @param node JsonNode containing the JSON response to deserialize
+     */
     public MarketSearchJson(JsonNode node){
         JSONObject jsonObj = node.getObject();
         Item item;
