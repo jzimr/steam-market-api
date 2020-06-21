@@ -42,6 +42,7 @@ public class MarketHistory extends APIHandler {
         }
         if(!marketData.isSuccess()){
             throw new WrongQueryException("pricehistory",
+                    priceHistory.getBody() == null ? "null" : priceHistory.getBody().toString(),
                     "appid: " + appId.getID(),
                     "market_hash_name: " + marketHashName);
         }

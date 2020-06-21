@@ -77,3 +77,68 @@ SteamSearch results:
         },
     "sale_price_text":"$0.46"}
 ]}
+
+SteamInventory Results:
+{"assets":[
+    {"appid":730,
+    "contextid":"2",
+    "assetid":"18722593355",
+    "classid":"3830259730",
+    "instanceid":"0",
+    "amount":"1"},
+    {"appid":730,
+    "contextid":"2",
+    "assetid":"18722576457",
+    "classid":"3830259730",
+    "instanceid":"0",
+    "amount":"1"
+    }],
+"descriptions":[
+    {"appid":730,
+    "classid":"3830259730",
+    "instanceid":"0",
+    "currency":0,
+    "background_color":"",
+    "icon_url":"-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXU5A1PIYQNqhpOSV-fRPasw8rsUFJ5KBFZv668FF8ugPDMIWpAuIq1w4KIlaChZOyFwzgJuZNy3-2T89T0jlC2rhZla2vwIJjVLFHz75yKpg",
+    "descriptions":[{"type":"html","value":" "},{"type":"html","value":"Container Series #50","color":"99ccff"},{"type":"html","value":" "},{"type":"html","value":"Contains one of the following:"},{"type":"html","value":"Galil AR | Rocket Pop","color":"4b69ff"},{"type":"html","value":"Glock-18 | Bunsen Burner","color":"4b69ff"},{"type":"html","value":"Nova | Ranger","color":"4b69ff"},{"type":"html","value":"P90 | Elite Build","color":"4b69ff"},{"type":"html","value":"UMP-45 | Riot","color":"4b69ff"},{"type":"html","value":"USP-S | Torque","color":"4b69ff"},{"type":"html","value":"FAMAS | Neural Net","color":"8847ff"},{"type":"html","value":"M4A4 | Evil Daimyo","color":"8847ff"},{"type":"html","value":"MP9 | Ruby Poison Dart","color":"8847ff"},{"type":"html","value":"Negev | Loudmouth","color":"8847ff"},{"type":"html","value":"P2000 | Handgun","color":"8847ff"},{"type":"html","value":"CZ75-Auto | Yellow Jacket","color":"d32ce6"},{"type":"html","value":"MP7 | Nemesis","color":"d32ce6"},{"type":"html","value":"SG 553 | Cyrex","color":"d32ce6"},{"type":"html","value":"AK-47 | Aquamarine Revenge","color":"eb4b4b"},{"type":"html","value":"AWP | Hyper Beast","color":"eb4b4b"},{"type":"html","value":"or an Exceedingly Rare Falchion Knife!","color":"ffd700"},{"type":"html","value":" "},{"type":"html","value":"","color":"00a000"}],
+    "tradable":1,
+    "name":"Falchion Case",
+    "name_color":"D2D2D2",
+    "type":"Base Grade Container",
+    "market_name":"Falchion Case",
+    "market_hash_name":"Falchion Case",
+    "commodity":1,
+    "market_tradable_restriction":7,
+    "marketable":1,
+    "tags":[
+        {"category":"Type",
+        "internal_name":"CSGO_Type_WeaponCase",
+        "localized_category_name":"Type",
+        "localized_tag_name":"Container"},
+        {"category":"ItemSet",
+        "internal_name":"set_community_8",
+        "localized_category_name":"Collection",
+        "localized_tag_name":"The Falchion Collection"},
+        {"category":"Quality",
+        "internal_name":"normal",
+        "localized_category_name":"Category",
+        "localized_tag_name":"Normal"},
+        {"category":"Rarity",
+        "internal_name":"Rarity_Common",
+        "localized_category_name":"Quality",
+        "localized_tag_name":"Base Grade",
+        "color":"b0c3d9"}],
+    "market_buy_country_restriction":"FR"}],
+"more_items":1,
+"last_assetid":"18722576457",
+"total_inventory_count":999,
+"success":1,
+"rwgrsn":-2}
+
+
+
+
+
+
+
+

@@ -57,6 +57,9 @@ public class MarketHistoryJson {
 
         isEmpty = false;
         success = node.getObject().getBoolean("success");
+        if(success == false){
+            return;
+        }
         pricePrefix = node.getObject().getString("price_prefix");
         priceSuffix = node.getObject().getString("price_suffix");
 

@@ -4,7 +4,7 @@ package com.multicus.steamApp.marketapi;
  * Enum containing the currencies of countries currently supported by this API
  */
 public enum CurrencyCode {
-    USD(1),
+    USD(0),
     EURO(3),
     NOK(9);     // todo: add rest of currencies
 

@@ -30,6 +30,7 @@ public class PriceOverview {
 
         if(!priceOverviewData.isSuccess()){
             throw new WrongQueryException("priceoverview",
+                    priceOverview.getBody() == null ? "null" : priceOverview.getBody().toString(),
                     "appid: " + appId.getID(),
                     "market_hash_name: " + marketHashName,
                     "currency: " + currency.getCode());
