@@ -39,6 +39,33 @@
                     <target>8</target>
                 </configuration>
             </plugin>
+            <!--
+            This plugin configuration will enable Maven to include the project dependencies
+            in the produced jar file.
+            It also enables us to run the jar file using `java -jar command`
+            -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>3.2.1</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <configuration>
+                            <transformers>
+                                <transformer
+                                        implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                                    <!-- Remove comment to make this exe or testing in general
+                                    <mainClass>com.multicus.steamApp.App</mainClass> -->
+                                </transformer>
+                            </transformers>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
 </project>
