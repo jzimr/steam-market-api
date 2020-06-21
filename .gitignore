@@ -25,3 +25,6 @@ hs_err_pid*
 .idea/
 target/
 *.iml
+src/test/
+src/main/java/com/multicus/steamApp/App.java
+src/main/java/com/multicus/steamApp/api.txt
