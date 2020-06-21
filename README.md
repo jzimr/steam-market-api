@@ -1,3 +1,5 @@
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/multicus/steam-market-api)
+
 # Steam market API
 This library provides simple functions to call endpoints on the Steam Community Market and returns them in a nice fashion.
 
