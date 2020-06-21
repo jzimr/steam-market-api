@@ -13,4 +13,4 @@ This library currently supports these API calls:
 | /login | SteamLogin | Cookie containing sessionId for API calls that require user to be logged in (e.g. /market/pricehistory)
 
 ## Note on /login
-This library currently does NOT support two-factor authentication with Steam Guard, so in order to use this API call you have to disable it.
+This library currently does NOT support two-factor authentication with Steam Guard, so in order to use this API call you have to disable it on the Steam account.
