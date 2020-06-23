@@ -2,8 +2,7 @@
 
 # Steam market API
 This library provides simple functions to call endpoints on the Steam Community Market and returns them in a nice fashion.
-
-This library currently supports these API calls:
+Currently supported API calls:
 | Steam API endpoint| Class | Response | Login required
 |--|--|--|--|
 | /market/priceoverview | PriceOverview | Price and volume of a single item on the market | No
