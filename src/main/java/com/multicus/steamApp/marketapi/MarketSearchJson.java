@@ -15,21 +15,17 @@ public class MarketSearchJson {
     /**
      * A single item in the search results
      */
-    public class Item{
-        private String name;
-        private String hashName;
+    public class Item {
+        private String marketHashName;
         private int volume;
         private double sellPrice; // in usd
         private double salePrice; // in usd
         private int appID;
         private String iconURL;
+        private String type;
 
-        public String getName() {
-            return name;
-        }
-
-        public String getHashName() {
-            return hashName;
+        public String getMarketHashName() {
+            return marketHashName;
         }
 
         public int getVolume() {
@@ -51,6 +47,10 @@ public class MarketSearchJson {
         public String getIconURL() {
             return iconURL;
         }
+
+        public String getType() {
+            return type;
+        }
     }
 
     private boolean success;
@@ -63,9 +63,10 @@ public class MarketSearchJson {
 
     /**
      * Constructor to deserialize the JSON given into the fields of the class
+     *
      * @param node JsonNode containing the JSON response to deserialize
      */
-    public MarketSearchJson(JsonNode node){
+    public MarketSearchJson(JsonNode node) {
         JSONObject jsonObj = node.getObject();
         Item item;
 
@@ -76,36 +77,27 @@ public class MarketSearchJson {
         lastUpdated = Instant.now().getEpochSecond();
 
         JSONArray rlts = jsonObj.getJSONArray("results");
-        for(int i = 0; i < rlts.length(); i++){
+        for (int i = 0; i < rlts.length(); i++) {
             jsonObj = rlts.getJSONObject(i);
             item = new Item();
 
-            item.name = jsonObj.getString("name");
-            item.hashName = jsonObj.getString("hash_name");
+            item.marketHashName = jsonObj.getString("hash_name");
             item.volume = jsonObj.getInt("sell_listings");
             item.sellPrice = jsonObj.getInt("sell_price") / 100.0;
 
             String salePriceTxt = jsonObj.getString("sale_price_text");
             // get the currency identifier of the request
-            if(i==0){
+            if (i == 0) {
                 currency = salePriceTxt.replaceAll("[\\s\\d.,]", "");
             }
             // convert sale price String to double
             salePriceTxt = salePriceTxt.replaceAll("[^\\d]", "");
 
-            // todo remove under
-            /*
-            salePriceTxt = salePriceTxt.substring(1);
-            if(salePriceTxt.contains(",")){
-                salePriceTxt = new StringBuilder(salePriceTxt).deleteCharAt(salePriceTxt.indexOf(",")).toString();
-            }
-             */
-
-            try{
+            try {
                 item.salePrice = Double.parseDouble(salePriceTxt);
                 // dividing by 100 because we replaced decimals in the regex above
                 item.salePrice /= 100.0;
-            } catch(NumberFormatException e){
+            } catch (NumberFormatException e) {
                 e.printStackTrace();
                 continue;
             }
@@ -113,6 +105,14 @@ public class MarketSearchJson {
             jsonObj = jsonObj.getJSONObject("asset_description");
             item.appID = jsonObj.getInt("appid");
             item.iconURL = jsonObj.getString("icon_url");
+
+            String type = jsonObj.getString("type");
+            for (ItemType itemType : ItemType.values()) {
+                if (type.contains(itemType.getType())) {
+                    item.type = itemType.getType();
+                    break;
+                }
+            }
 
             items.add(item);
         }
