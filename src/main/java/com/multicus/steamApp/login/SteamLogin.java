@@ -41,6 +41,10 @@ public class SteamLogin {
      */
     public Cookie login(String user, String password, String captchaText, String captchaGid, String emailSteamId, String emailCode)
             throws SteamGuardException, CaptchaException, VerificationException {
+        // don't save cookies
+        Unirest.config()
+                .enableCookieManagement(false);
+
         try {
             // first get RSA key
             RSAJson rsaJson = getRSAKey(user);

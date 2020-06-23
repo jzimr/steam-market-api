@@ -10,11 +10,14 @@ public class APIHandler {
 
     /**
      * Singleton (ish) constructor
+     *
      * @param sessionCookie A Cookie containing the steamLoginSecure with value
      */
     public APIHandler(Cookie sessionCookie) {
-        if(this.sessionCookie.getName() == ""){
+        if (this.sessionCookie.getName() == "") {
             this.sessionCookie = sessionCookie;
+        } else {
+            updateSessionCookie(sessionCookie);
         }
     }
 
@@ -24,6 +27,7 @@ public class APIHandler {
 
     /**
      * Replace the current session cookie
+     *
      * @param sessionCookie A cookie containing the steamLoginSecure with value
      */
     public static void updateSessionCookie(Cookie sessionCookie) {
