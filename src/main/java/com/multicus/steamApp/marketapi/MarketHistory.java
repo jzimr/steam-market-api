@@ -13,6 +13,7 @@ public class MarketHistory extends APIHandler {
 
     /**
      * Normal constructor to register the session
+     *
      * @param sessionCookie Cookie that contains the steamLoginSecure session value
      */
     public MarketHistory(Cookie sessionCookie) {
@@ -21,11 +22,12 @@ public class MarketHistory extends APIHandler {
 
     /**
      * Call the API that returns the price history of an item
-     * @param appId The Steam App ID of the game to retrieve items from
+     *
+     * @param appId          The Steam App ID of the game to retrieve items from
      * @param marketHashName The market_hash_name of the item to retrieve price history from
      * @return All price history entries recorded
      * @throws NotLoggedInException Thrown if user not logged in or session cookie has expired
-     * @throws WrongQueryException Thrown if the parameters in the query are incorrect
+     * @throws WrongQueryException  Thrown if the parameters in the query are incorrect
      */
     public MarketHistoryJson callAPI(AppID appId, String marketHashName) throws NotLoggedInException, WrongQueryException {
         HttpResponse<JsonNode> priceHistory = Unirest.get(baseURL)
@@ -37,10 +39,10 @@ public class MarketHistory extends APIHandler {
 
         MarketHistoryJson marketData = new MarketHistoryJson(priceHistory.getBody());
 
-        if(marketData.isEmpty()){
+        if (marketData.isEmpty()) {
             throw new NotLoggedInException("pricehistory");
         }
-        if(!marketData.isSuccess()){
+        if (!marketData.isSuccess()) {
             throw new WrongQueryException("pricehistory",
                     priceHistory.getBody() == null ? "null" : priceHistory.getBody().toString(),
                     "appid: " + appId.getID(),

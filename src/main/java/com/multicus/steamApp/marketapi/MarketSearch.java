@@ -24,7 +24,7 @@ public class MarketSearch {
         HttpResponse<JsonNode> marketSearch = Unirest.get(baseURL)
                 .queryString("norender", 1)
                 .queryString("appid", appId.getID())
-                .queryString("q", query)
+                .queryString("query", query)
                 .queryString("start", start)
                 .queryString("count", count)
                 .asJson()
