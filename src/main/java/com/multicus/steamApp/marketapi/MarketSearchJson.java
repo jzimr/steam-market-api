@@ -106,12 +106,17 @@ public class MarketSearchJson {
             item.appID = jsonObj.getInt("appid");
             item.iconURL = jsonObj.getString("icon_url");
 
-            String type = jsonObj.getString("type");
-            for (ItemType itemType : ItemType.values()) {
-                if (type.contains(itemType.getType())) {
-                    item.type = itemType.getType();
-                    break;
+            // only CSGO is currently supported to get "type"
+            if(item.appID == AppID.COUNTER_STRIKE_GLOBAL_OFFENSIVE.getID()){
+                String type = jsonObj.getString("type");
+                for (ItemType itemType : ItemType.values()) {
+                    if (type.contains(itemType.getType())) {
+                        item.type = itemType.getType();
+                        break;
+                    }
                 }
+            } else {
+                item.type = ItemType.UNCATEGORIZED.getType();
             }
 
             items.add(item);

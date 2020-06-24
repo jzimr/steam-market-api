@@ -20,7 +20,8 @@ public enum ItemType {
     PASS("Pass"),
     GIFT("Gift"),
     TAG("Tag"),
-    TOOL("Tool");
+    TOOL("Tool"),
+    UNCATEGORIZED("Uncategorized");
 
     private final String type;
 

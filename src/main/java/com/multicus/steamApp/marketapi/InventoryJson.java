@@ -17,7 +17,7 @@ public class InventoryJson {
      */
     public class Item {
         private String marketHashName;
-        private String type;            // e.g. "Container", "Rifle", ...
+        private String type;            // (only for CSGO) e.g. "Container", "Rifle", ...
         private List<String> classIds = new ArrayList<>();      // items can have same name but different classIds
         private int amount;
         private String iconURL;
@@ -117,10 +117,15 @@ public class InventoryJson {
                 item.iconURL = itemObj.getString("icon_url");
                 item.classIds.add(classId);
 
-                for (int k = 0; k < tags.length(); k++) {
-                    if (tags.getJSONObject(k).getString("category").equals("Type")) {
-                        item.type = tags.getJSONObject(k).getString("localized_tag_name");
+                // only CSGO is currently supported for getting "type"
+                if(itemObj.getInt("appid") == AppID.COUNTER_STRIKE_GLOBAL_OFFENSIVE.getID()){
+                    for (int k = 0; k < tags.length(); k++) {
+                        if (tags.getJSONObject(k).getString("category").equals("Type")) {
+                            item.type = tags.getJSONObject(k).getString("localized_tag_name");
+                        }
                     }
+                } else {
+                    item.type = ItemType.UNCATEGORIZED.getType();
                 }
                 items.add(item);
             }
