@@ -4,7 +4,7 @@
   <groupId>com.multicus.steamApp</groupId>
   <artifactId>steam-market-api</artifactId>
   <name>steam-market-api</name>
-  <version>1.02</version>
+  <version>1.04</version>
   <url>http://maven.apache.org</url>
   <build>
     <plugins>

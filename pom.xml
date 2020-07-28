@@ -4,7 +4,7 @@
 
     <groupId>com.multicus.steamApp</groupId>
     <artifactId>steam-market-api</artifactId>
-    <version>1.03</version>
+    <version>1.041</version>
     <packaging>jar</packaging>
 
     <name>steam-market-api</name>

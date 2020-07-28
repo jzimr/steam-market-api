@@ -38,7 +38,7 @@ public enum ItemType {
 
     public static Optional<ItemType> getEnum(String value) {
         return Arrays.stream(values())
-                .filter(itemType -> itemType.type == value)
+                .filter(itemType -> itemType.type.equals(value))
                 .findFirst();
     }
 }
