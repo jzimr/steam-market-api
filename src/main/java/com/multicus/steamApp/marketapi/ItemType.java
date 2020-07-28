@@ -1,5 +1,8 @@
 package com.multicus.steamApp.marketapi;
 
+import java.util.Arrays;
+import java.util.Optional;
+
 public enum ItemType {
     PISTOL("Pistol"),
     SMG("SMG"),
@@ -25,11 +28,17 @@ public enum ItemType {
 
     private final String type;
 
-    ItemType(String type){
+    ItemType(String type) {
         this.type = type;
     }
 
-    public String getType(){
+    public String getType() {
         return this.type;
+    }
+
+    public static Optional<ItemType> getEnum(String value) {
+        return Arrays.stream(values())
+                .filter(itemType -> itemType.type == value)
+                .findFirst();
     }
 }
